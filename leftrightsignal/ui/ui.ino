@@ -4,7 +4,6 @@ void setup() {
   Serial.begin(9600);
 }
 
-int space=0;
 void loop() {
   int left = digitalRead(7);
   int right = digitalRead(6);
