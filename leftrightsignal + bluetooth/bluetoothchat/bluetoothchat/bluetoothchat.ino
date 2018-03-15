@@ -8,29 +8,18 @@ void setup()
 }
  
 void loop()
-{
-  int left = 7;
-  int right = 6;
-  
-  // Feed any data from bluetooth to Terminal.
+{  
+  // Feed any data from phone to arduino.
   if (EEBlue.available()){
-    Serial.print("phone to comp");
     Serial.write(EEBlue.read());
   }
   
-  // Feed all data from terminal to bluetooth
+  // Feed all data from arduino to phone
   if (Serial.available()){
-    Serial.print("comp to phone");
-    EEBlue.write(Serial.read());
+    int incomingByte=0;
+    incomingByte = Serial.read();
+    EEBlue.write(incomingByte);
+    Serial.write(incomingByte);
   }
-}
-
-int moveLeft(){
-
-}
-
-int moveRight(){
-
-
 }
 

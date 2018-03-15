@@ -7,7 +7,6 @@ void setup() {
 void loop() {
   int left = digitalRead(7);
   int right = digitalRead(6);
-  int output;
   
   if(left == HIGH){
     Serial.println("left");
