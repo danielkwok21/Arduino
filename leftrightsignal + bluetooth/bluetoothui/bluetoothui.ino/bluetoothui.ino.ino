@@ -6,7 +6,6 @@ void setup()
   pinMode(6, OUTPUT); //right
   Serial.begin(9600);
   EEBlue.begin(9600);  //Default Baud for comm, it may be different for your Module. 
-  Serial.println("All ready");
 }
  
 void loop()
@@ -17,12 +16,13 @@ void loop()
   // Feed all data from arduino to phone
   
   if(left == HIGH){
-    EEBlue.println('7');
     Serial.println('7');
   }else if(right == HIGH){
-    EEBlue.println('6');
     Serial.println('6');
-  }  
+  }
+  else if(left==LOW && right==LOW){
+    Serial.println('5');      
+  }
   delay(100);
 }
 
